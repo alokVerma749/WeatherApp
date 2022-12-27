@@ -22,21 +22,6 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-    </li>
-    <li><a href="#built-with">Built With</a></li>
-    <li><a href="#live-project">Live Project</a></li>
-    <li><a href="#learnt">Learnt</a></li>
-    <li><a href="#recommended-articles">Recommended Articles</a></li>
-    <li><a href="#contact">About Me</a></li>
-
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 
