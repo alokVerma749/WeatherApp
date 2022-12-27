@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import Landing from './components/Landing'
+import Dashboard from './components/Dashboard'
 
 function App() {
+  // url and data is been set by Landing.js
+
+  // user input data
+  const [data, setData] = useState({
+    country: '',
+    city: ''
+  })
+  const [url, setUrl] = useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing data={data} setData={setData} setUrl={setUrl} />} />
+        <Route path="/dashboard" element={<Dashboard url={url} setUrl={setUrl} country={data.country} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
