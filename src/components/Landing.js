@@ -7,7 +7,7 @@ const Landing = (props) => {
     function handleClick(e) {
         e.preventDefault()
         try {
-            setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${data.city},${data.country}&appid=375e92d0bef175a6c2dff24610d79dd5&units=metric`)
+            setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${data.city},${data.country}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
             navigate('/dashboard')
         } catch (error) {
             throw new Error(error)
