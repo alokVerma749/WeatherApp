@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing data={data} setData={setData} setUrl={setUrl} />} />
-        <Route path="/dashboard" element={<Dashboard url={url} setUrl={setUrl} country={data.country} />} />
+        <Route path="/dashboard" element={<Dashboard url={url} setUrl={setUrl} data={data} />} />
       </Routes>
     </BrowserRouter>
   );

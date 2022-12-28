@@ -1,28 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-// {
-//     base: "stations"
-//     clouds: all
-//     cod: 200
-//     coord: { lon: 74.0833, lat: 15.3333 }
-//     dt: 1672067850
-//     id: 1271157
-//     main: { temp: 26.21, feels_like: 26.21, temp_min: 26.21, temp_max: 26.21, pressure: 1013 }
-//     name: "Goa"
-//     sys: { type: 1, id: 9233, country: 'IN', sunrise: 1672018044, sunset: 1672058430 }
-//     timezone: 19800
-//     visibility: 10000
-//     weather: [{ id: 802, main: 'Clouds', description: 'scattered clouds', icon: '03n' }]
-//     wind: { speed: 1.08, deg: 355, gust: 1.94 }
-// }
 function Dashboard(props) {
     const [status, setStatus] = useState('idle')
     const [weatherData, setWeatherData] = useState({})
     const [city, setCity] = useState('')
-    const { url, setUrl, country } = props
-    const changeCity = function () {
-        setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
+    const { url, setUrl, data } = props
+    const changeCity = function (e) {
+        e.preventDefault(e)
+        setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${city},${data.country}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
     }
     useEffect(() => {
         const fetchData = async () => {
@@ -51,15 +37,17 @@ function Dashboard(props) {
                             </svg>
                         </button>
                     </span>
+                    {/* Change city Form */}
                     <form onSubmit={changeCity}>
                         <input type="search" name="Search" placeholder="Search..." className=" text-black w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none dark:bg-gray-800 dark:text-gray-100 focus:dark:bg-gray-900 focus:dark:border-violet-400" value={city} onChange={e => setCity(e.target.value)} />
-                        <button type="submit" className="border border-white px-2 py-1 mx-2 font-medium rounded-full dark:bg-gray-100 dark:text-gray-800 hover:bg-white hover:text-black hover:border-transparent ease-in-out duration-300 animate-pulse transition-all delay-75">Change City</button>
+                        <button className="border border-white px-2 py-1 mx-2 font-medium rounded-full dark:bg-gray-100 dark:text-gray-800 hover:bg-white hover:text-black hover:border-transparent ease-in-out duration-300 animate-pulse transition-all delay-75">Change City</button>
                     </form>
                 </div>
             </fieldset>
             <h1>{
                 status === 'success' ? 'Data fetched successfully' : 'Data fetching failed'
             }</h1>
+            {/* Main Temperature Div */}
             <div className="max-w-xs overflow-hidden rounded-lg shadow-lg dark:bg-gray-900 dark:text-gray-100">
                 <div className="text-center">
                     <p className="text-sm dark:text-gray-400">{new Date().toDateString()}</p>
