@@ -13,6 +13,7 @@ function Dashboard(props) {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setStatus('Loading');
                 const result = await axios.get(url);
                 console.log(result.data)
                 setWeatherData(result.data);
@@ -45,7 +46,9 @@ function Dashboard(props) {
                 </div>
             </fieldset>
             <h1>{
-                status === 'success' ? 'Data fetched successfully' : 'Data fetching failed'
+                status === 'success' ? 'Data fetched successfully' : status === 'Loading' ? 'Loading Data...' : <p className='text-red-600'>
+                    Data fetching failed
+                </p>
             }</h1>
             {/* Main Temperature Div */}
             <div className="max-w-xs overflow-hidden rounded-lg shadow-lg dark:bg-gray-900 dark:text-gray-100">
