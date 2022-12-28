@@ -22,7 +22,7 @@ function Dashboard(props) {
     const [city, setCity] = useState('')
     const { url, setUrl, country } = props
     const changeCity = function () {
-        setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=375e92d0bef175a6c2dff24610d79dd5&units=metric`)
+        setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
     }
     useEffect(() => {
         const fetchData = async () => {
