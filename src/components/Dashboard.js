@@ -51,7 +51,7 @@ function Dashboard(props) {
                 </p>
             }</h1>
             {/* Main Temperature Div */}
-            <div className="max-w-xs overflow-hidden rounded-lg shadow-lg dark:bg-gray-900 dark:text-gray-100">
+            <div className="max-w-sm md:max-w-lg overflow-hidden rounded-lg shadow-lg dark:bg-gray-900 dark:text-gray-100">
                 <div className="text-center">
                     <p className="text-sm dark:text-gray-400">{new Date().toDateString()}</p>
                 </div>
@@ -87,7 +87,7 @@ function Dashboard(props) {
                 </div>
                 <div className="flex items-center justify-between gap-8 p-4 border-t dark:text-gray-400 dark:border-gray-700">
                     <div className="flex items-center space-x-1">
-                        <span className="font-bold">{weatherData ? weatherData.main && weatherData.main.humidity : "Loading..."}</span>
+                        <span className="font-bold">{weatherData ? weatherData.main && weatherData.main.humidity : "Loading..."}%</span>
                         <span className="text-sm">Humidity</span>
                     </div>
                     <div className="flex items-center space-x-1">
@@ -95,8 +95,8 @@ function Dashboard(props) {
                         <span className="text-sm">Visibility</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                        <span className="font-bold">14°</span>
-                        <span className="text-sm">Dew Point</span>
+                        <span className="font-bold">{weatherData ? weatherData.main && weatherData.main.pressure : "Loading..."}hPa</span>
+                        <span className="text-sm">Pressure</span>
                     </div>
                 </div>
             </div>
