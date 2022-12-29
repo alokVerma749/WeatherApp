@@ -8,7 +8,7 @@ function Dashboard(props) {
     const { url, setUrl, data } = props
     const changeCity = function (e) {
         e.preventDefault(e)
-        setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${city},${data.country}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
+        setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${city.trim()},${data.country}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
     }
     useEffect(() => {
         const fetchData = async () => {
