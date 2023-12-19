@@ -27,7 +27,7 @@
 
 ## About The Project
 
-![Weather App: Weather Ap](https://github.com/alokVerma749/WeatherApp/blob/master/demo.png)
+![image](https://github.com/alokVerma749/WeatherApp/assets/87599400/53782afa-81c6-4929-b4de-bc7c871b560f)
 
 Here's a project learnt and build using React js and Tailwind CSS
 
